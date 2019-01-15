@@ -16,8 +16,6 @@ Raw_data = {'Questions': ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 
 ], 'Activity_Posrange_4': [0.00801834, 0.006973293, 0.010489052, 0.003141665, 0.007603265, 0.015395057, 0.00448751,
 0.010711989, 0.002550522, 1.15614E-05]}
 
-# Create dataframe to be able to work on the data instead of import as csv file
-
 import pandas as pd
 import numpy as np
 import scipy
