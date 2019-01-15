@@ -23,7 +23,7 @@ import heapq
 from scipy import stats
 
 Raw_data_DF = pd.DataFrame(Raw_data)
-print(Raw_data_DF)
+Raw_data_DF
 
 # Calulate Geometric mean per row for positve range 4 and 3; and then negative range 4 and 3
 from heapq import nlargest
@@ -39,8 +39,8 @@ Geometric_meanpos = scipy.stats.gmean(Raw_data_DF.iloc[:,3:4],axis=1)
 print(nlargest(3, Geometric_meanpos))
 
 
-# Range_Positive = ('I can perform regular activities')
-# Range_Negative = ('I can perform activities only at home')
+Range_Positive = 'I can perform regular activities'
+Range_Negative = 'I can perform activities only at home'
 
 Activity_Posrange_4 = ('I can perform regular activities')
 Activity_Posrange_3 = ('I can perform regular activities')
@@ -48,45 +48,8 @@ Activity_Negrange_4 = ('I can perform activities only at home')
 Activity_Negrange_3 = ('I can perform activities only at home')
 
 #considering only 2 possible options available describing activity potential of patient that we selected as shown above
-Question_Selection = input('Please describe your ability potential after care:'))
-
-if Question_Selection == Activity_Posrange_4 and Activity_Posrange_4 == Activity_Posrange_3:
-    print(nlargest(3, Geometric_meanpos)
-
-elif Question_Selection == Activity_Negrange_4 and Activity_Negrange_4 == Activity_Negrange_3:
-    print(nlargest(3, Geometric_meanneg))
-
-else:
-    print('Please talk to your Health provider to fill in your PRO')
-
-
-
-
-
-# Second possibility when User inputted something wrong
-
-while True:
-    try:
-        # Note: Python 2.x users should use raw_input, the equivalent of 3.x's input
-        Question_Selection = input('Please describe your ability potential after care:'))
-    except ValueError:
-        print("Sorry, I didn't understand that.")
-        #better try again... Return to the start of the loop
-        continue
-    else:
-
-        break
-# return to start of loop
-
-
 Question_Selection = input('Please describe your ability potential after care:')
 
-if Question_Selection == Activity_Posrange_4 and Question_Selection == Activity_Posrange_3:
+Raw_data_DF.loc[(Raw_data_DF.Questions == 'Activity_Posrange_4')|(Raw_data_DF.Questions == 'Activity_Posrange_3'), 'name_match'] = 'I can perform regular activities' 
 
-    print(nlargest(3, Geometric_meanpos)
-
-elif Question_Selection == Activity_Negrange_4 and Question_Selection == Activity_Negrange_3:
-    print(nlargest(3, Geometric_meanneg))
-
-else:
-    print('Please, talk to your Health provider to fill in your PRO')
+Raw_data_DF.loc[(Raw_data_DF.Questions != 'Activity_Negrange_4')|(Raw_data_DF.Questions == 'Activity_Negrange_3'), 'name_match'] = 'I can perform activities only at home' 
