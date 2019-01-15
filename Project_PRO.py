@@ -52,4 +52,4 @@ Question_Selection = input('Please describe your ability potential after care:')
 
 Raw_data_DF.loc[(Raw_data_DF.Questions == 'Activity_Posrange_4')|(Raw_data_DF.Questions == 'Activity_Posrange_3'), 'name_match'] = 'I can perform regular activities' 
 
-Raw_data_DF.loc[(Raw_data_DF.Questions != 'Activity_Negrange_4')|(Raw_data_DF.Questions == 'Activity_Negrange_3'), 'name_match'] = 'I can perform activities only at home' 
+Raw_data_DF.loc[(Raw_data_DF.Questions != 'Activity_Negrange_4')&(Raw_data_DF.Questions == 'Activity_Negrange_3'), 'name_match'] = 'I can perform activities only at home' 
