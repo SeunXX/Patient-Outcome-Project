@@ -38,6 +38,8 @@ print(nlargest(3, Geometric_meanneg))
 Geometric_meanpos = scipy.stats.gmean(Raw_data_DF.iloc[:,3:4],axis=1)
 print(nlargest(3, Geometric_meanpos))
 
+# Patients have to options to describe thier ability potential after care: a. 'I can perform regular activities', b. 'I can perform activities only at home' 
+
 
 Range_Positive = 'I can perform regular activities'
 Range_Negative = 'I can perform activities only at home'
